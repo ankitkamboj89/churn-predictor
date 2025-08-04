@@ -6,7 +6,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load model and preprocessors
-model = joblib.load("../model/model.pkl")
+model = joblib.load("model.pkl")
 
 scaler = joblib.load("model/scaler.pkl")
 label_encoders = joblib.load("model/label_encoders.pkl")
@@ -40,5 +40,6 @@ def predict():
 
         return render_template("result.html", prediction=prediction, probability=round(prob * 100, 2))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=10000)
+
