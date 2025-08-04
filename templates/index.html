@@ -8,12 +8,20 @@
             background: #f2f2f2;
             padding: 40px;
         }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .intro {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
         form {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            max-width: 600px;
-            margin: auto;
         }
         input, select {
             width: 100%;
@@ -34,9 +42,33 @@
     </style>
 </head>
 <body>
-    <h2 align="center">Customer Churn Predictor</h2>
+<div class="container">
+    <div class="intro">
+        <h2>Customer Churn Predictor</h2>
+        <p>
+            This web app predicts whether a customer is likely to churn (leave the service) based on demographic,
+            usage, and account information. It is built using a <strong>Random Forest Classifier</strong>, trained on
+            the <i>Telco Customer Churn</i> dataset.
+        </p>
+        <p>
+            The pipeline involves preprocessing categorical features with label encoding, standardizing numeric columns,
+            and training a model with an 80/20 train-test split.
+        </p>
+        <p>
+            <strong>Model Used:</strong> Random Forest Classifier<br>
+            <strong>Evaluation Metric:</strong> F1-score<br>
+            <strong>F1 Score (Yes churn):</strong> ~0.63 &nbsp;&nbsp;&nbsp;
+            <strong>F1 Score (No churn):</strong> ~0.86<br>
+            <strong>Overall Accuracy:</strong> ~79%<br>
+        </p>
+        <p>
+            To use the app, please fill out the form below with valid customer information.
+            All fields are required and must match the original dataset structure.
+        </p>
+    </div>
+
     <form method="POST" action="/predict">
-        <!-- TEXT inputs -->
+        <!-- Form fields start -->
         <label>Gender:</label>
         <select name="gender" required>
             <option value="Male">Male</option>
@@ -156,5 +188,6 @@
         <br><br>
         <button class="button" type="submit">Predict Churn</button>
     </form>
+</div>
 </body>
 </html>
