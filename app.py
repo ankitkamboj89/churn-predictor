@@ -6,7 +6,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load model and preprocessors
-model = joblib.load("model.pkl")
+model = joblib.load("model/model.pkl")
 
 scaler = joblib.load("model/scaler.pkl")
 label_encoders = joblib.load("model/label_encoders.pkl")
